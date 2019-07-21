@@ -1,0 +1,467 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+a{
+    text-decoration: none;
+}
+p{
+    margin: 0.75rem 0;
+}
+
+.text-primary{
+    color: aqua;
+}
+/*notre bar de navigation*/
+#navbar{
+    display: flex;
+    /*on rajoute sticky comme ca si ca descned navbar reste */
+    position: sticky;
+    top: 0;
+    background: #333;
+    /* align horizontally */
+    justify-content: space-between;
+    /* ajoutons un index z qui va ajouter au dessu */
+    z-index: 1;
+    padding: 1em;
+    height: 65px;
+}
+
+#navbar ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+#navbar ul li a{
+    color: whitesmoke;
+    padding: 10px;
+}
+#navbar ul li a:hover{
+    background-color: forestgreen;
+    border-radius: 10px;
+}
+/*notre backgroung image*/
+#hydrogeomorphologie{
+    /* cover fait en sorte de mettre image peu importe taille */
+    background: url('./image/tomifobia.jpg')
+    no-repeat center center/cover;
+    height: 700px;
+    color: white;
+}
+#hydrogeomorphologie .showcase-content{
+    display: flex;
+    flex-direction: column;
+    /* on aligne tout au centre */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 700px;
+    background-color: rgba(0,0,0,0.4);
+    top: 60px;
+}
+.titre{
+    font-size: 4rem;
+}
+/*notre paragraphe pour la backgroung image*/
+.para{
+    line-height: 1.7;
+}
+#bouton{
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid orange;
+}
+/*on rajoute une couleur quand la souris selectionne le bouton avec hover */
+#bouton:hover{
+    background-color: dodgerblue;
+}
+#quinousomme{
+    background-color: white;
+    height: 300px;
+    padding: 5px;
+    top: 2px;
+}
+.description{
+    display: flex;
+    justify-content: center;
+    padding: 0.5em;
+}
+#quinousomme .description h1{
+    color: blue;
+}
+.mainnous{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 35px;
+}
+.gits a {
+    display: flex;
+    justify-content: center;
+}
+#contact{
+    display: flex;
+    height: 500px;
+}
+#contact .contactez, #contact #mapid{
+    flex: 1;
+}
+.contactez{
+    background-color: #333333;
+}
+/* nos style pour la forme Style inputs with type="text", select elements and textareas */
+form{
+    padding-left: 15px;
+}
+input[type=text], select, textarea {
+  width: 70%; /* Full width */
+  padding: 8px; /* Some padding */
+  border: 3px solid dodgerblue; /* Gray border */
+  border-radius: 15px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 10px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: flex;
+  color: white;
+}
+input{
+  display: flex;
+  justify-content: center;
+}
+input[type=submit] {
+  background-color: #0693cd;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-size:14px;
+  font-weight: bold;
+  padding: 10px;
+  width: 82px
+}
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: coral;
+    transform-style: preserve-3d;
+    transition: all 1s ease;
+}
+#container:hover{
+    transform: rotateY(180deg);
+}
+#container div{
+    border: solid blue;
+    padding: 10px;
+    backface-visibility: hidden;
+}
+.eunflipcard{
+    flex:1;
+    flex-basis: 470px;
+    height: 300px;
+    background: url('./image/lit.png')
+    no-repeat center center/cover;
+}
+.eunflipback{
+    flex:1;
+    flex-basis: 300px;
+    text-align: justify;
+    line-height: 1em;
+    transform: rotateY(-180deg);
+}
+.etroisflipcard{
+    flex:1;
+    flex-basis: 470px;
+    background: url('./image/litmajeur.jpg')
+    no-repeat center center/cover;
+}
+.etroisflipback{
+    flex:1;
+    flex-basis: 300px;
+    margin-top: 15px;
+    line-height: 1em;
+    text-align: justify;
+    transform: rotateY(-180deg);
+}
+#hydrologie{
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+    background-color: lightskyblue;
+
+}
+#hydrologie h1{
+    padding: 10px;
+}
+.containerhydro{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    text-align: justify;
+}
+.containerhydro div{
+    border: solid black;
+    margin: 25px;
+    padding: 25px;
+}
+/* ajoutons transform scale comme ca on voit le bloc sortir en 3D */
+.cycle:hover{
+    transform: scale(1.09);
+    box-shadow: 2px 2px 2px #000;
+    z-index: 10;
+}
+.bg-modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.modal-content{
+    width: 80%;
+    background-color: white;
+    border-radius: 7px;
+    overflow-y: scroll;
+    height: 400px;
+}
+.modal-content h1{
+    text-align: center;
+}
+#close{
+    border:none;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    color: blue;
+    font-weight: bold;
+    font-size: 15px;
+}
+#developper{
+    background-color: olivedrab;
+}
+.bassin:hover{
+    transform: scale(1.09);
+    box-shadow: 2px 2px 2px #000;
+    z-index: 10;
+}
+.dynamique:hover{
+    transform: scale(1.09);
+    box-shadow: 2px 2px 2px #000;
+    z-index: 10;
+}
+/* on fait en sorte d'Avoir la m taille de bloc sur tous nos blocs */
+.cycle{
+    flex: 1;
+}
+.bassin{
+    flex: 1;
+}
+.dynamique{
+    flex: 1;
+}
+#geomorphologie{
+    padding: 0px;
+    margin: 0;
+    text-align: justify;
+    background-color: sandybrown;
+}
+#geomorphologie h1{
+    padding: 10px;
+}
+/* ajoutons transform scale comme ca on voit le bloc sortir en 3D */
+.morphologie:hover{
+    transform: scale(1.09);
+    box-shadow: 2px 2px 2px #000;
+    z-index: 10;
+}
+.indice:hover{
+    transform: scale(1.09);
+    box-shadow: 2px 2px 2px #000;
+    z-index: 10;
+}
+.style:hover{
+    transform: scale(1.09);
+    box-shadow: 2px 2px 2px #000;
+    z-index: 10;
+}
+/* on fait en sorte d'Avoir la m taille de bloc sur tous nos blocs */
+.morphologie{
+    flex: 1;
+}
+.indice{
+    flex: 1;
+}
+.style{
+    flex: 1;
+}
+#hgm{
+    padding: 0;
+    margin: 0;
+    text-align: justify;
+    background-color: white;
+}
+#hgm h1{
+    padding: 10px;
+}
+/* ajoutons transform scale comme ca on voit le bloc sortir en 3D */
+.historique:hover{
+    transform: scale(1.09);
+    box-shadow: 2px 2px 2px #000;
+    z-index: 10;
+}
+.descriptio:hover{
+    transform: scale(1.09);
+    box-shadow: 2px 2px 2px #000;
+    z-index: 10;
+}
+.application:hover{
+    transform: scale(1.09);
+    box-shadow: 2px 2px 2px #000;
+    z-index: 10;
+}
+/* on fait en sorte d'Avoir la m taille de bloc sur tous nos blocs */
+.historique{
+    flex: 1;
+}
+.descriptio{
+    flex: 1;
+}
+.application{
+    flex: 1;
+}
+/* partie de style relié au questionnaire */
+#question{
+    padding: 0;
+    margin: 0;
+    background-color: #333333 ;
+    color: white;
+}
+#question h1{
+    padding: 10px;
+    margin: 10px;
+}
+.questionnaire{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    margin: 0.75rem;
+}
+.questionnaire div{
+    border: 2px solid blue;
+    box-shadow: 2px 2px 2px blue;
+    margin: 0.75rem;
+    padding: 1rem;
+}
+.questionnaire ul{
+    list-style-type: none;
+}
+.question1{
+    flex-basis: 600px;
+}
+.question1 h3{
+    margin: 5px;
+}
+/* ici on choisit nos question qui seront en rouge (fausse) et ceux en vert (vrai) en leur mettant un background avec hover */
+/* quand on dit ntn-child(-n+2) ca veut dire les deux premiers éléments (-n+3) les 3 premiers et aisni de suite */
+.question1 li:nth-child(-n+2):hover{
+    background-color: red;
+    box-shadow: 3px 3px 3px #000;
+}
+.question1 li:nth-child(3):hover{
+    background-color: green;
+    box-shadow: 3px 3px 3px #000;
+}
+.question1 li:nth-child(4):hover{
+    background-color: red;
+    box-shadow: 3px 3px 3px #000;
+}
+.question2{
+    flex-basis: 600px;
+}
+.question2 h3{
+    margin: 5px;
+}
+.question2 li:nth-child(2):hover{
+    background-color: green;
+    box-shadow: 3px 3px 3px #000;
+}
+.question2 li:nth-child(1):hover{
+    background-color: red;
+    box-shadow: 3px 3px 3px #000;
+}
+.question2 li:nth-child(3):hover{
+    background-color: red;
+    box-shadow: 3px 3px 3px #000;
+}
+.question2 li:nth-child(4):hover{
+    background-color: red;
+    box-shadow: 3px 3px 3px #000;
+}
+.question3{
+    flex-basis: 600px;
+}
+.question3 h3{
+    margin: 5px;
+}
+.question3 li:nth-child(-n+2):hover{
+    background-color: red;
+    box-shadow: 3px 3px 3px #000;
+}
+.question3 li:nth-child(3):hover{
+    background-color: green;
+    box-shadow: 3px 3px 3px #000;
+}
+.question3 li:nth-child(4):hover{
+    background-color: red;
+    box-shadow: 3px 3px 3px #000;
+}
+.question4{
+    flex-basis: 600px;
+}
+.question4 h3{
+    margin: 5px;
+}
+.question4 li:nth-child(-n+3):hover{
+    background-color: red;
+    box-shadow: 3px 3px 3px #000;
+}
+.question4 li:nth-child(4):hover{
+    background-color: green;
+    box-shadow: 3px 3px 3px #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

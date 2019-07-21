@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="jsfile/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+    <!--ajoutons le description de notre site -->
+    <meta name="description" content="Pricipes hydrogeomorphologiques">
+    <title>Pricipes de l'hydrogéomorphologie</title>
+</head>
+<body id="principale">
+<!-- notre bar de navigation -->
+<nav id="navbar">
+        <h1 class="logo">
+            <span class="text-primary">AquaThick
+            </span>
+        </h1>
+ <ul>
+     <li><a href="hydra.html"> Principale</a></li>
+     <li><a href="#container"> Notions théoriques</a></li>
+     <li><a href="#hydrologie">Hydrologie</a></li>
+     <li><a href="#geomorphologie">Géomorphologie</a></li>
+     <li><a href="#hgm">Méthode HGM</a></li>
+     <li><a href="#question">Exercices</a></li>
+ </ul>
+</nav>
+<!-- ici class qui finit en back sont nos face a lenvers exemple: eunflipback-->
+<div id="container">
+        <div class="eunflipcard"></div>
+
+         <div class="eunflipback">
+             <h2>Lit majeur </h2>
+             <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+                sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+                contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+                Aldus PageMaker.</p>
+        </div>
+        <div class="etroisflipcard"></div>
+
+         <div class="etroisflipback">
+             <h2> Lit mineur</h2>
+             <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+                sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+                contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+                Aldus PageMaker.</p>
+        </div>
+</div>
+<!-- section hydrologie -->
+<section id="hydrologie">
+    <h1> HYDROLOGIE</h1>
+   <div class="containerhydro">
+    <div class="cycle">
+        <h2>Le cycle</h2>
+    <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+       <button id="developper" type="button"> developper </button>
+   </div>
+   <div class="bg-modal">
+       <div class="modal-content">
+           <div id="close">FERMER LA FENETRE X</div>
+           <h1>Le cycle</h1>
+          <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+           <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+           <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+           <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+           <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+       </div>
+   </div>
+    <div class="bassin">
+        <h2>Le bassin</h2>
+    <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+   </div>
+    <div class="dynamique">
+        <h2>La dynamique</h2>
+    <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+   </div>
+   </div>
+</section>
+<!-- section geomorphologie -->
+<section id="geomorphologie">
+    <h1>Géomorphologie</h1>
+    <div class="containerhydro">
+     <div class="morphologie">
+        <h2>La morphologie</h2>
+     <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+     </div>
+     <div class="indice">
+        <h2>Indices géomorphologiques</h2>
+     <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+    </div>
+     <div class="style">
+        <h2>Les styles fluviaux</h2>
+     <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+    </div>
+   </div>
+</section>
+<!-- section HGM -->
+<section id="hgm">
+    <h1>La méthode HGM</h1>
+    <div class="containerhydro">
+    <div class="historique">
+        <h2>Historique de la méthode</h2>
+    <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+   </div>
+    <div class="descriptio">
+        <h2>Description de la méthode</h2>
+    <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+   </div>
+    <div class="application">
+        <h2>Applications de la méthode</h2>
+    <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le
+        sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme
+        Aldus PageMaker.</p>
+   </div>
+   </div>
+</section>
+<!-- section questionnaire -->
+<section id="question">
+    <h1>Questionnaire</h1>
+    <div class="questionnaire">
+        <div class="question1">
+            <h3> Que veut t-on dire par lit mineur?</h3>
+            <ul>
+              <li>a)Un lit qui est relié à la berge</li>
+              <li>b)Un lit ou la riviere évolue en période de crue</li>
+              <li>c)Un lit qui est occupé par la rivière la plupart du temps</li>
+              <li>d)Un lit qui est relié à l'inondation</li>
+         </ul>
+        </div>
+        <div class="question2">
+            <h3> Que veut t-on dire par lit majeur?</h3>
+            <ul>
+              <li>a)Un lit qui est relié à la berge</li>
+              <li>b)Un lit ou la riviere évolue en période de crue</li>
+              <li>c)Un lit qui est occupé par la rivière la plupart du temps</li>
+              <li>d)Un lit qui est relié à l'inondation</li>
+         </ul>
+        </div>
+           <div class="question3">
+            <h3> Que veut t-on dire par méthode HGM?</h3>
+            <ul>
+              <li>a)Un lit qui est relié à la berge</li>
+              <li>b)Un lit ou la riviere évolue en période de crue</li>
+              <li>c)Un lit qui est occupé par la rivière la plupart du temps</li>
+              <li>d)Un lit qui est relié à l'inondation</li>
+         </ul>
+        </div>
+        <div class="question4">
+            <h3> Que veut t-on dire par terrasse inondé?</h3>
+            <ul>
+              <li>a)Un lit qui est relié à la berge</li>
+              <li>b)Un lit ou la riviere évolue en période de crue</li>
+              <li>c)Un lit qui est occupé par la rivière la plupart du temps</li>
+              <li>d)Un lit qui est relié à l'inondation</li>
+         </ul>
+        </div>
+    </div>
+    </div>
+</section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
