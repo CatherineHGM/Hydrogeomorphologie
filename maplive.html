@@ -80,11 +80,6 @@ $.getJSON('data/riv18.geojson',function(data){
 })
 });
 
-
-var imageUrl = "image/classeriviere.png",
-    imageBounds = [[45.0221165749999983, -72.1478710469999953], [45.0523363519999975, -72.1282912850000031]];
-var rive = L.imageOverlay(imageUrl, imageBounds);
-
 var worldimagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {id: 'mapid', attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',maxZoom:25}),
     streets   = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {id: 'mapid', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',maxZoom:25});
 
@@ -102,7 +97,6 @@ $((document )).ready(function() {
     };
 
     var overlayMaps = {
-        "rive": rive,
         "rive de 2018": rive18,
         "rive de 2017": rive17,
         "rive de 1979": rive79,
