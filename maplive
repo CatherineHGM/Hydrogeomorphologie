@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="titre">
+    <h1>Résultats préliminaires</h1>
+</div>
+
+<div id="mapid"> </div>
+<style>
+    #mapid{
+        height: 950px;
+    }
+    #titre{
+        text-align: center;
+        background-color: #0693cd;
+    }
+</style>
+
+<script>
+function polystyle(feature) {
+    return {
+        color: 'green'  //Outline color
+    };
+}
+function polystyle1(feature) {
+    return {
+        color: 'orange'  //Outline color
+    };
+}
+function polystyle2(feature) {
+    return {
+        color: 'magenta'  //Outline color
+    };
+}
+
+ var shoreseg= null;
+$.getJSON('data/riv45.geojson',function(data){
+        shoreseg=L.geoJson(data,{
+            style: polystyle,
+            onEachFeature:function (feature, layer){layer.bindPopup("<u><b>Segment ID:</b></u>" + feature.properties.Id);
+    }
+})
+});
+
+ var rive79= null;
+$.getJSON('data/riv79.geojson',function(data){
+        rive79=L.geoJson(data,{
+            style: polystyle1,
+            onEachFeature:function (feature, layer){layer.bindPopup("<u><b>Segment ID:</b></u>" + feature.properties.Id);
+    }
+})
+});
+ var rive17= null;
+$.getJSON('data/riv17.geojson',function(data){
+        rive17=L.geoJson(data,{
+            style: polystyle2,
+            onEachFeature:function (feature, layer){layer.bindPopup("<u><b>Segment ID:</b></u>" + feature.properties.Id);
+    }
+})
+});
+ var rive18= null;
+$.getJSON('data/riv18.geojson',function(data){
+        rive18=L.geoJson(data,{
+            onEachFeature:function (feature, layer){layer.bindPopup("<u><b>Segment ID:</b></u>" + feature.properties.Id);
+    }
+})
+});
+
+
+var imageUrl = "image/classeriviere.png",
+    imageBounds = [[45.0221165749999983, -72.1478710469999953], [45.0523363519999975, -72.1282912850000031]];
+var rive = L.imageOverlay(imageUrl, imageBounds);
+
+var worldimagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {id: 'mapid', attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',maxZoom:25}),
+    streets   = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {id: 'mapid', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',maxZoom:25});
+
+
+var mymap = L.map('mapid', {
+    center: [45.04, -72.15],
+    zoom: 14,
+    layers: [worldimagery]
+});
+
+$((document )).ready(function() {
+      var baseMaps = {
+    "worldimagery": worldimagery,
+    "openstreetmap": streets
+    };
+
+    var overlayMaps = {
+        "rive": rive,
+        "rive de 2018": rive18,
+        "rive de 2017": rive17,
+        "rive de 1979": rive79,
+        "rive de 1945": shoreseg
+    };
+    L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+    L.control.scale().addTo(mymap);
+})
+
+</script>
+
+</body>
+</html>
