@@ -207,12 +207,6 @@ var mymap = L.map('mapid', {
     zoom: 5,
     layers: [worldimagery]
 });
-
-$((document )).ready(function() {
-    var buttonEl = document.getElementById("dialog");
-    buttonEl.onclick = function () {
-        buttonEl.style.display = "none";
-    };
     // add leaflet-geoman controls with some options to the map
     mymap.pm.addControls({
         position: 'topleft',
