@@ -1,40 +1,47 @@
-<!doctype html>
-<html lang="en">
+<html lang='eng'>
+<meta charset="utf-8"/>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+ <meta name="viewport" content="width=device-width">
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
    crossorigin=""></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <title>Document</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script
+     src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js"></script>
+
+   <link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
+<script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
+ <!-- My reference for js geojson -->
+    <script type="text/javascript" src="data/riv45.js"></script>
+    <script type="text/javascript" src="data/riv79.js"></script>
+    <script type="text/javascript" src="data/riv17.js"></script>
+    <script type="text/javascript" src="data/riv18.js"></script>
+
+   <!-- Editing ressources -->
+    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+
 </head>
 <body>
-<div id="titre">
-    <h1>Résultats préliminaires</h1>
-</div>
-
-<div id="mapid"> </div>
-    
-    <div id="slide-in">
+<!--on ajoute notre slide bar comme ca -->
+<div id="slide-in">
     <div id="text">
-    <h2><u> Detailed information </u></h2>
- <p>This application is a tool to visualize the information taken on the North River of Saskatchewan during the years 2016, 2017 and 2018.</p>
- <h2><u> Information detaille </u></h2>
- <p>Cette application est un outil permettant de visualiser les informations prises sur la rivi&egrave;re Nord de Saskatchewan au cours des ann&egrave;es 2016, 2017 et 2018.</p>
+    <h2><u> Information detaille </u></h2>
+ <p>Cette application est une carte de vulnérabilite de riviere Tomifobia</p>
     </div>
-    <div id='legend-title'><h2><u>Legend</u></h2></div>
+    <div id='legend-title'><h2><u>Legende</u></h2></div>
 <div id='legend-scale'>
-    <ul class="leaf"><p>Data of 2016</p><button id="couche1"> Display</button> <button id="couche11"> Hide</button></ul>
-    <ul class="leaf1"><p>Data of 2017</p><button id="couche2"> Display</button> <button id="couche22"> Hide</button></ul>
-    <ul class="leaf2"><p>Data of 2018</p><button id="couche3"> Display</button> <button id="couche33"> Hide</button></ul>
-    <ul class="leaf3"><p>Photo of 2016</p><button id="couche4"> Display</button> <button id="couche44"> Hide</button></ul>
-</div>
+    <ul class="leaf"><p>Image de 1945</p><button id="couche1"> Afficher</button> <button id="couche11"> Cacher</button></ul>
+    <ul class="leaf1"><p>Image de 1979</p><button id="couche2"> Afficher</button> <button id="couche22"> Cacher</button></ul>
+    <ul class="leaf2"><p>Image de 2007</p><button id="couche3"> Afficher</button> <button id="couche33"> Cacher</button></ul>
+    <ul class="leaf3"><p>Image de 2018</p><button id="couche4"> Afficher</button> <button id="couche44"> Cacher</button></ul>
+  </div>
 </div>
 
 <!-- on ajoute notre bouton de recherche avec ca -->
@@ -44,20 +51,75 @@
     <h2><u>Map options</u></h2>
     <button id="advanced"> Detailed Bar</button>
     </div>
-    
-    
-    
-    
-    
+
+<!-- on ajoute le id de notre map -->
+<div id="mapid"></div>
+
 <style>
-    #mapid{
-        height: 950px;
+    html, body, #mapid {
+        overflow-y: hidden;
+        overflow-x: hidden;
+        width: 100%;
+        height: 100%;
     }
-    #titre{
-        text-align: center;
-        background-color: #0693cd;
+    .leaf {
+    height: 50px;
+    padding-left: 50px;
+    padding-top: 3px;
+    display: flex;
+    justify-content: space-around;
+}
+    .leaf1 {
+        height: 50px;
+        padding-left: 50px;
+        padding-top: 3px;
+        color:black;
+        display: flex;
+        justify-content: space-around;
     }
-    #slide-in {
+    .leaf2 {
+        height: 50px;
+        padding-left: 50px;
+        padding-top: 3px;
+        color: black;
+        display: flex;
+        justify-content: space-around;
+    }
+    .leaf3 {
+        height: 50px;
+        padding-left: 50px;
+        padding-top: 3px;
+        color:black;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #legend-title{
+        margin-left: 10px;
+    }
+    #legend-scale{
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: justify;
+        Line-Height: 2;
+    }
+    #legend-scale button{
+        background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+        font-weight: bold;
+        border: solid rgb(16,24,50);
+        border-left-width: 10px;
+        border-radius: 5px;
+        color: white;
+        width: 120px;
+    }
+    #legend-scale button:hover{
+        background: linear-gradient(#ff4b1f, #1fddff);
+    }
+    #text{
+        margin-left: 10px;
+        Line-Height: 2;
+    }
+ #slide-in {
     background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
     position: absolute;
     width: 500px;
@@ -73,7 +135,8 @@
  #slide-in.in{
   margin-left: 50px;
  }
- 
+ #mapid { height: 100%; }
+
  #overlay {
  position: absolute;
  z-index: 1000;
@@ -88,86 +151,129 @@
  margin-left: -100px;
  text-align: center;
  }
-    
-</style>
 
+ #narrow{
+ position: absolute;
+     z-index: 1000;
+     font-size:15px;
+ }
+#advanced{
+    border:solid lightseagreen;
+    border-radius: 10px;
+}
+.leaflet-control-layers-toggle {
+    background-image: url("IMAGES/Icones photos/couchesicon.png");
+    color: white;
+}
+.leaflet-control-layers-expanded {
+    color: white;
+    background-color: #2da0e2;
+}
+
+ </style>
 <script>
-function polystyle(feature) {
-    return {
-        color: 'green'  //Outline color
-    };
-}
-function polystyle1(feature) {
-    return {
-        color: 'orange'  //Outline color
-    };
-}
-function polystyle2(feature) {
-    return {
-        color: 'magenta'  //Outline color
-    };
-}
 
- var shoreseg= null;
-$.getJSON('data/riv45.geojson',function(data){
-        shoreseg=L.geoJson(data,{
-            style: polystyle,
-            onEachFeature:function (feature, layer){layer.bindPopup("<u><b>Segment ID:</b></u>" + feature.properties.Id);
-    }
-})
-});
+/*Creons une variable ou on sauvegardera nos donnees
+   var kmlpolys= null;
+/* Lisons notre fichier json (kmlpoly) car cest juste ce type quon peut lire dapres ce que jai appris
+   Use JQuery getJSON method to load an external GeoJSON*/
+$(document).ready(function () {
+  $('#slide-in').height(window);
 
- var rive79= null;
-$.getJSON('data/riv79.geojson',function(data){
-        rive79=L.geoJson(data,{
-            style: polystyle1,
-            onEachFeature:function (feature, layer){layer.bindPopup("<u><b>Segment ID:</b></u>" + feature.properties.Id);
-    }
-})
-});
- var rive17= null;
-$.getJSON('data/riv17.geojson',function(data){
-        rive17=L.geoJson(data,{
-            style: polystyle2,
-            onEachFeature:function (feature, layer){layer.bindPopup("<u><b>Segment ID:</b></u>" + feature.properties.Id);
-    }
-})
-});
- var rive18= null;
-$.getJSON('data/riv18.geojson',function(data){
-        rive18=L.geoJson(data,{
-            onEachFeature:function (feature, layer){layer.bindPopup("<u><b>Segment ID:</b></u>" + feature.properties.Id);
-    }
-})
-});
+  $(document).on('click','#advanced',function () {
+   if($('#slide-in').hasClass('in')){
+    $('#slide-in').removeClass('in')
+   } else{
+    $('#slide-in').addClass('in')
+   }
+  })
+ });
 
-var worldimagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {id: 'mapid', attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',maxZoom:25}),
-    streets   = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {id: 'mapid', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',maxZoom:25});
+/*Creons la carte avec le moyen de selectionner plusieurs cartes */
+
+ var worldimagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {id: 'mapid', attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',maxZoom:25}),
+    streets   = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {id: 'mapid', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',maxZoom:25}),
+    OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {maxZoom: 17, attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    }),
+ CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd',
+	maxZoom: 19
+    });
 
 
 var mymap = L.map('mapid', {
-    center: [45.04, -72.15],
-    zoom: 14,
+    center: [55.585901, -105.750596],
+    zoom: 5,
     layers: [worldimagery]
 });
 
 $((document )).ready(function() {
-      var baseMaps = {
-    "worldimagery": worldimagery,
-    "openstreetmap": streets
+    var buttonEl = document.getElementById("dialog");
+    buttonEl.onclick = function () {
+        buttonEl.style.display = "none";
+    };
+    // add leaflet-geoman controls with some options to the map
+    mymap.pm.addControls({
+        position: 'topleft',
+        drawCircle: true,
+        drawPolyline: true,
+    });
+
+    var baseMaps = {
+        "worldimagery": worldimagery,
+        "openstreetmap": streets,
+        "OpenTopoMap": OpenTopoMap,
+        "CartoDB_DarkMatter": CartoDB_DarkMatter
     };
 
-    var overlayMaps = {
-        "rive de 2018": rive18,
-        "rive de 2007": rive17,
-        "rive de 1979": rive79,
-        "rive de 1945": shoreseg
-    };
-    L.control.layers(baseMaps, overlayMaps).addTo(mymap);
-    L.control.scale().addTo(mymap);
-})
+    //photo de 1945
+    couche = document.getElementById('couche1');
+    couche2 = document.getElementById('couche11');
+
+    var data1945 = L.geoJSON(premiere);
+    couche.addEventListener('click', function () {
+        data1945.addTo(mymap)
+    });
+    couche2.addEventListener('click', function () {
+        mymap.removeLayer(data1945);
+    });
+    // photo de 1979
+    couche2 = document.getElementById('couche2');
+    couche22 = document.getElementById('couche22');
+
+    var data1979 = L.geoJSON(deuxieme);
+    couche2.addEventListener('click', function () {
+        data1979.addTo(mymap)
+    });
+    couche22.addEventListener('click', function () {
+        mymap.removeLayer(data1979);
+    });
+    // photo de 2007
+    couche3 = document.getElementById('couche3');
+    couche33 = document.getElementById('couche33');
+
+    var data2007 = L.geoJSON(troisieme);
+    couche3.addEventListener('click', function () {
+        data2007.addTo(mymap)
+    });
+    couche33.addEventListener('click', function () {
+        mymap.removeLayer(data2007);
+    });
+    
+    // photo 2018
+    couche4 = document.getElementById('couche4');
+    couche44 = document.getElementById('couche44');
+
+    var photo2018 = L.geoJSON(quatrieme);
+    couche4.addEventListener('click', function () {
+        photo2018.addTo(mymap)
+    });
+    couche44.addEventListener('click', function () {
+        mymap.removeLayer(photo2018);
+    });
+});
 
 </script>
-
 </body>
 </html>
