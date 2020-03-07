@@ -20,6 +20,35 @@
 </div>
 
 <div id="mapid"> </div>
+    
+    <div id="slide-in">
+    <div id="text">
+    <h2><u> Detailed information </u></h2>
+ <p>This application is a tool to visualize the information taken on the North River of Saskatchewan during the years 2016, 2017 and 2018.</p>
+ <h2><u> Information detaille </u></h2>
+ <p>Cette application est un outil permettant de visualiser les informations prises sur la rivi&egrave;re Nord de Saskatchewan au cours des ann&egrave;es 2016, 2017 et 2018.</p>
+    </div>
+    <div id='legend-title'><h2><u>Legend</u></h2></div>
+<div id='legend-scale'>
+    <ul class="leaf"><p>Data of 2016</p><button id="couche1"> Display</button> <button id="couche11"> Hide</button></ul>
+    <ul class="leaf1"><p>Data of 2017</p><button id="couche2"> Display</button> <button id="couche22"> Hide</button></ul>
+    <ul class="leaf2"><p>Data of 2018</p><button id="couche3"> Display</button> <button id="couche33"> Hide</button></ul>
+    <ul class="leaf3"><p>Photo of 2016</p><button id="couche4"> Display</button> <button id="couche44"> Hide</button></ul>
+</div>
+</div>
+
+<!-- on ajoute notre bouton de recherche avec ca -->
+<div id="overlay">
+    <h3 id="narrow"></h3>
+       <h1> North &#8657; </h1>
+    <h2><u>Map options</u></h2>
+    <button id="advanced"> Detailed Bar</button>
+    </div>
+    
+    
+    
+    
+    
 <style>
     #mapid{
         height: 950px;
@@ -28,6 +57,38 @@
         text-align: center;
         background-color: #0693cd;
     }
+    #slide-in {
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    position: absolute;
+    width: 500px;
+    z-index: 1000;
+    margin-left: -520px;
+    transition: 0.5s;
+     border: solid black;
+     border-radius: 40px;
+     overflow-y: auto;
+     height: 500px;
+     font-weight: 700;
+ }
+ #slide-in.in{
+  margin-left: 50px;
+ }
+ 
+ #overlay {
+ position: absolute;
+ z-index: 1000;
+ background: rgba(255,255,255,0.7);
+ padding: 10px;
+ margin: 14px;
+ border-radius: 40px;
+ box-shadow: 1px 1px 1px grey;
+ min-height: 100px;
+ bottom: 100px;
+ right: 0%;
+ margin-left: -100px;
+ text-align: center;
+ }
+    
 </style>
 
 <script>
