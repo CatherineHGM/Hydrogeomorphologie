@@ -220,6 +220,22 @@ var mymap = L.map('mapid', {
         "OpenTopoMap": OpenTopoMap,
         "CartoDB_DarkMatter": CartoDB_DarkMatter
     };
+	
+function polystyle(feature) {
+    return {
+        color: 'green'  //Outline color
+    };
+}
+function polystyle1(feature) {
+    return {
+        color: 'orange'  //Outline color
+    };
+}
+function polystyle2(feature) {
+    return {
+        color: 'magenta'  //Outline color
+    };
+}
 
     //photo de 1945
     couche = document.getElementById('couche1');
@@ -236,7 +252,9 @@ var mymap = L.map('mapid', {
     couche2 = document.getElementById('couche2');
     couche22 = document.getElementById('couche22');
 
-    var data1979 = L.geoJSON(deuxieme);
+    var data1979 = L.geoJSON(deuxieme,{
+            style: polystyle
+    	});
     couche2.addEventListener('click', function () {
         data1979.addTo(mymap)
     });
@@ -247,7 +265,9 @@ var mymap = L.map('mapid', {
     couche3 = document.getElementById('couche3');
     couche33 = document.getElementById('couche33');
 
-    var data2007 = L.geoJSON(troisieme);
+    var data2007 = L.geoJSON(troisieme,{
+            style: polystyle1
+    });
     couche3.addEventListener('click', function () {
         data2007.addTo(mymap)
     });
@@ -259,7 +279,9 @@ var mymap = L.map('mapid', {
     couche4 = document.getElementById('couche4');
     couche44 = document.getElementById('couche44');
 
-    var photo2018 = L.geoJSON(quatrieme);
+    var photo2018 = L.geoJSON(quatrieme,{
+            style: polystyle2
+    });
     couche4.addEventListener('click', function () {
         photo2018.addTo(mymap)
     });
