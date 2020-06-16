@@ -1,4 +1,4 @@
-var sol = {
+let sol = {
 	"type": "FeatureCollection",
 	"name": "sol",
 	"crs": {
