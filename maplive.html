@@ -18,9 +18,9 @@
    <link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
 <script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
  <!-- My reference for js geojson -->
-    <script type="text/javascript" src="data/riv45.js"></script>
-    <script type="text/javascript" src="data/riv79.js"></script>
-    <script type="text/javascript" src="data/riv17.js"></script>
+    <script type="text/javascript" src="data/riviere.js"></script>
+    <script type="text/javascript" src="data/mobilite.js.js"></script>
+    <script type="text/javascript" src="data/litmajeur.js"></script>
     <script type="text/javascript" src="data/riv18.js"></script>
 
    <!-- Editing ressources -->
@@ -228,7 +228,7 @@ function polystyle(feature) {
 }
 function polystyle1(feature) {
     return {
-        color: 'orange'  //Outline color
+        color: '#facb0e'  //Outline color
     };
 }
 function polystyle2(feature) {
@@ -237,42 +237,42 @@ function polystyle2(feature) {
     };
 }
 
-    //photo de 1945
+    //riviere
     couche = document.getElementById('couche1');
     couche2 = document.getElementById('couche11');
 
-    var data1945 = L.geoJSON(premiere);
+    let rivieres = L.geoJSON(riviere);
     couche.addEventListener('click', function () {
-        data1945.addTo(mymap)
+        rivieres.addTo(mymap)
     });
     couche2.addEventListener('click', function () {
-        mymap.removeLayer(data1945);
+        mymap.removeLayer(rivieres);
     });
-    // photo de 1979
+    // mobilite de la riviere
     couche2 = document.getElementById('couche2');
     couche22 = document.getElementById('couche22');
 
-    var data1979 = L.geoJSON(deuxieme,{
+    let mobilites = L.geoJSON(mobilite,{
             style: polystyle
     	});
     couche2.addEventListener('click', function () {
-        data1979.addTo(mymap)
+        mobilites.addTo(mymap)
     });
     couche22.addEventListener('click', function () {
-        mymap.removeLayer(data1979);
+        mymap.removeLayer(mobilites);
     });
-    // photo de 2007
+    // lit majeur
     couche3 = document.getElementById('couche3');
     couche33 = document.getElementById('couche33');
 
-    var data2007 = L.geoJSON(troisieme,{
+    var litsmajeur = L.geoJSON(litmajeur,{
             style: polystyle1
     });
     couche3.addEventListener('click', function () {
-        data2007.addTo(mymap)
+        litsmajeur.addTo(mymap)
     });
     couche33.addEventListener('click', function () {
-        mymap.removeLayer(data2007);
+        mymap.removeLayer(litsmajeur);
     });
     
     // photo 2018
