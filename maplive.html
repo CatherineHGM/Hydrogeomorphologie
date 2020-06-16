@@ -236,6 +236,52 @@ function polystyle2(feature) {
         color: 'magenta'  //Outline color
     };
 }
+//function for popup polygon of the soil
+function polygone(feature, layer) {
+    // does this feature have a property named popupContent?
+    if (feature.properties && feature.properties.Type_occu) {
+        layer.bindPopup(feature.properties.Type_occu)
+    }
+}
+
+// function to style the polygon
+function stylespoly(a) {
+    switch (a) {
+        case 'Arboree': return '#006400';
+        case 'Arbustive': return '#00FF00';
+        case 'Champ': return '#FFFF00';
+        case 'Friche_paturage': return '#BDB76B';
+        case 'Infrastructure': return '#808080';
+        case 'Milieu humide': return '#87CEEB';
+        case 'Plan_Eau': return '#0000FF';
+        case 'Sol_nu': return '#8B4513';
+    }
+}
+//function to apply the final style to the polygon
+function style(feature) {
+    return {
+        fillColor: stylespoly(feature.properties.Type_occu),
+        weight: 1,
+        color: 'black',
+        fillOpacity: 1
+    };
+}
+
+   // soil
+    couche4 = document.getElementById('couche4');
+    couche44 = document.getElementById('couche44');
+   //add soil classification geojson object
+   let soil = L.geoJSON(sol,{
+		  onEachFeature: polygone,
+		  style: style 
+		});
+    // add layer soil to the map
+    couche4.addEventListener('click', function () {
+        soil.addTo(mymap)
+    });
+    couche44.addEventListener('click', function () {
+        mymap.removeLayer(soil);
+    });
 
     //riviere
     couche = document.getElementById('couche1');
@@ -275,20 +321,7 @@ function polystyle2(feature) {
         mymap.removeLayer(litsmajeur);
     });
     
-    // photo 2018
-    couche4 = document.getElementById('couche4');
-    couche44 = document.getElementById('couche44');
-
-    var photo2018 = L.geoJSON(quatrieme,{
-            style: polystyle2
-    });
-    couche4.addEventListener('click', function () {
-        photo2018.addTo(mymap)
-    });
-    couche44.addEventListener('click', function () {
-        mymap.removeLayer(photo2018);
-    });
-
+   // different control of the map
     L.control.layers(baseMaps).addTo(mymap);
     L.control.scale().addTo(mymap);
  </script>
